@@ -23,3 +23,5 @@ Use default setting, a cifar10 vgg16 SNN is reported to be
 * T=8, Acc=95.01
 
 If there are any bugs for this new version, pls let me know.
+
+One pretrained model at https://drive.google.com/file/d/1HL-ngCcRTqXw6L6XML-1RCL6dgP1GIDZ/view?usp=share_link (old version)
