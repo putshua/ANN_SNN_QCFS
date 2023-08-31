@@ -18,11 +18,11 @@ parser.add_argument('-suffix','--suffix', default='', type=str,help='suffix')
 parser.add_argument('-T', '--time', default=0, type=int, help='snn simulation time')
 
 # model configuration
-parser.add_argument('-data', '--dataset',default='cifar100',type=str,help='dataset')
+parser.add_argument('-data', '--dataset',default='cifar10',type=str,help='dataset')
 parser.add_argument('-arch','--model',default='vgg16',type=str,help='model')
 
 # training configuration
-parser.add_argument('--epochs',default=200,type=int,metavar='N',help='number of total epochs to run')
+parser.add_argument('--epochs',default=300,type=int,metavar='N',help='number of total epochs to run')
 parser.add_argument('-lr','--lr',default=0.1,type=float,metavar='LR', help='initial learning rate')
 parser.add_argument('-wd','--weight_decay',default=5e-4, type=float, help='weight_decay')
 parser.add_argument('-dev','--device',default='0',type=str,help='device')
