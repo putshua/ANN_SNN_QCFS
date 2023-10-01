@@ -5,8 +5,8 @@ import warnings
 import torch.nn as nn
 import torch.nn.parallel
 import torch.optim
-from Models import modelpool
-from Preprocess import datapool
+from models import modelpool
+from preprocess import datapool
 from utils import train, val, seed_all, get_logger
 
 parser = argparse.ArgumentParser(description='PyTorch Training')
@@ -18,12 +18,12 @@ parser.add_argument('-suffix','--suffix', default='', type=str,help='suffix')
 parser.add_argument('-T', '--time', default=0, type=int, help='snn simulation time')
 
 # model configuration
-parser.add_argument('-data', '--dataset',default='cifar10',type=str,help='dataset')
+parser.add_argument('-data', '--dataset',default='cifar100',type=str,help='dataset')
 parser.add_argument('-arch','--model',default='vgg16',type=str,help='model')
 
 # training configuration
 parser.add_argument('--epochs',default=300,type=int,metavar='N',help='number of total epochs to run')
-parser.add_argument('-lr','--lr',default=0.1,type=float,metavar='LR', help='initial learning rate') # pls set this to 0.05 for cifar100
+parser.add_argument('-lr','--lr',default=0.1,type=float,metavar='LR', help='initial learning rate') # 0.05 for cifar100 / 0.1 for cifar10
 parser.add_argument('-wd','--weight_decay',default=5e-4, type=float, help='weight_decay')
 parser.add_argument('-dev','--device',default='0',type=str,help='device')
 parser.add_argument('-L', '--L', default=8, type=int, help='Step L')
@@ -47,12 +47,16 @@ def main():
         os.makedirs(log_dir)
 
     model.to(device)
+    
     criterion = nn.CrossEntropyLoss().to(device)
+    
     optimizer = torch.optim.SGD(model.parameters(), lr=args.lr, momentum=0.9, weight_decay=args.weight_decay)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs)
     best_acc = 0
 
     identifier = args.model
+
+    identifier += '_L[%d]'%(args.L)
 
     if not args.suffix == '':
         identifier += '_%s'%(args.suffix)
