@@ -50,7 +50,7 @@ class GradFloor(torch.autograd.Function):
 myfloor = GradFloor.apply
 
 class IF(nn.Module):
-    def __init__(self, T=0, L=8, thresh=4.0, tau=1., gama=1.0):
+    def __init__(self, T=0, L=8, thresh=8.0, tau=1., gama=1.0):
         super(IF, self).__init__()
         self.act = ZIF.apply
         self.thresh = nn.Parameter(torch.tensor([thresh]), requires_grad=True)
