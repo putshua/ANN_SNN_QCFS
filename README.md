@@ -21,7 +21,15 @@ Use default setting, a cifar10 vgg16 SNN is reported to be
 * T=2, Acc=90.94
 * T=4, Acc=94.01
 * T=8, Acc=95.01
+Use default setting (need to change lr to 0.05), a cifar100 vgg16 SNN is reported to be
+* T=2, Acc=64.89
+* T=4, Acc=70.42
+* T=8, Acc=74.63
+* T=64,Acc=77.70
 
 If there are any bugs for this new version, pls let me know.
 
-One pretrained model at https://drive.google.com/file/d/1HL-ngCcRTqXw6L6XML-1RCL6dgP1GIDZ/view?usp=share_link (old version)
+One pretrained model at 
+https://drive.google.com/drive/folders/1P-2egAraWtsQYNzp8lcJvZVEG_KLVV5Q?usp=sharing
+
+The CIFAR100 training configuration is updated and the example models/logs are uploaded to google drive. Sorry for take that long time.
