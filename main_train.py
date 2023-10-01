@@ -12,7 +12,7 @@ from utils import train, val, seed_all, get_logger
 parser = argparse.ArgumentParser(description='PyTorch Training')
 # just use default setting
 parser.add_argument('-j','--workers', default=4, type=int,metavar='N',help='number of data loading workers')
-parser.add_argument('-b','--batch_size', default=200, type=int,metavar='N',help='mini-batch size')
+parser.add_argument('-b','--batch_size', default=300, type=int,metavar='N',help='mini-batch size')
 parser.add_argument('--seed', default=42, type=int, help='seed for initializing training. ')
 parser.add_argument('-suffix','--suffix', default='', type=str,help='suffix')
 parser.add_argument('-T', '--time', default=0, type=int, help='snn simulation time')
@@ -23,7 +23,7 @@ parser.add_argument('-arch','--model',default='vgg16',type=str,help='model')
 
 # training configuration
 parser.add_argument('--epochs',default=300,type=int,metavar='N',help='number of total epochs to run')
-parser.add_argument('-lr','--lr',default=0.1,type=float,metavar='LR', help='initial learning rate')
+parser.add_argument('-lr','--lr',default=0.1,type=float,metavar='LR', help='initial learning rate') # pls set this to 0.05 for cifar100
 parser.add_argument('-wd','--weight_decay',default=5e-4, type=float, help='weight_decay')
 parser.add_argument('-dev','--device',default='0',type=str,help='device')
 parser.add_argument('-L', '--L', default=8, type=int, help='Step L')
