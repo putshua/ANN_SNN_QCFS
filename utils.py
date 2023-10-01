@@ -49,9 +49,7 @@ def train(model, device, train_loader, criterion, optimizer, T):
             outputs = model(images).mean(0)
         else:
             outputs = model(images)
-        
         loss = criterion(outputs, labels)
-        
         running_loss += loss.item()
         loss.mean().backward()
         optimizer.step()
