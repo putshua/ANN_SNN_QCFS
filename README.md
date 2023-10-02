@@ -21,6 +21,7 @@ Use default setting, a cifar10 vgg16 SNN is reported to be
 * T=2, Acc=90.94
 * T=4, Acc=94.01
 * T=8, Acc=95.01
+
 Use default setting (need to change lr to 0.05), a cifar100 vgg16 SNN is reported to be
 * T=2, Acc=64.89
 * T=4, Acc=70.42
